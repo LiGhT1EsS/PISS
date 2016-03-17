@@ -2,7 +2,7 @@ import time
 
 from werkzeug.security import generate_password_hash
 
-from app import db
+from . import db
 
 
 class Users(db.Model):

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+            {% include "navbar.html" %}
+			<div class="page-header">
+				<h1>
+					PISS - Login <small>Private Image Storage Service</small>
+				</h1>
+			</div>
+{#            {{ wtf.quick_form(data.form, form_type=horizontal) }}#}
+            <form role="form" method="POST" action="" >
+                {{ data.form.hidden_tag() }}
+				<div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" />
+				</div>
+				<div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" />
+				</div>
+                <button type="submit" class="btn btn-success">Sign In</button>
+                <a class="btn btn-link" href="/register">No Account?</a>
+			</form>
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+		</div>
+	</div>
+</div>
+{% endblock %}

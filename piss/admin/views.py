@@ -635,15 +635,15 @@ def setup(token):
     db.session.add(web_config)
     web_config = WebConfig(id='',
                            config_name='default_access_key',
-                           config_value='')
+                           config_value='sDfAMpQvPWGNdRUjcEuXBX5ANQkavS36-6yuobWG')
     db.session.add(web_config)
     web_config = WebConfig(id='',
                            config_name='default_secret_key',
-                           config_value='')
+                           config_value='m_ZrMLMsDpviGBti1L7ESTYpOdg7m7KQDOyhN_B6')
     db.session.add(web_config)
     db.session.commit()
     web_config = WebConfig(id='',
                            config_name='default_domain',
-                           config_value='')
+                           config_value='7xrq09.com1.z0.glb.clouddn.com')
     db.session.add(web_config)
     db.session.commit()

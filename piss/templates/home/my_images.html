@@ -1,0 +1,39 @@
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="page-header">
+            <h2>
+                图片管理 <small>Images Manage</small>
+            </h2>
+        </div>
+        <table class="table table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="vertical-align: middle;text-align: center">图片预览</th>
+                <th style="vertical-align: middle;text-align: center">标题</th>
+                <th style="vertical-align: middle;text-align: center">上传时间</th>
+                <th style="vertical-align: middle;text-align: center">操作</th>
+            </tr>
+        </thead>
+            <tbody>
+            {% for image in data.images %}
+                <tr>
+                    <td style="vertical-align: middle;text-align: center">
+                        <img height="128px" width="128px" src="{{ data.thumbnail_url+data.username+'/'+image.filename }}"
+                             class="img-thumbnail" ></td>
+                    <td style="vertical-align: middle;text-align: center">{{ image.title }}</td>
+                    <td style="vertical-align: middle;text-align: center">{{ image.upload_time }}</td>
+                    <td style="vertical-align: middle;text-align: center">
+{#                        {{ request.host_url+data.username+'/'+image.filename }}#}
+                        <a href="{{ image.link }}"
+                           class="btn btn-success" target="_blank">图片链接</a>
+                        <a href="#" class="btn btn-primary" id="edit_image"
+                           onclick="func_edit_image({{ image.image_id }})">详细信息</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{#    {{ data.pagination.page }}/{{ data.pagination.pages }}#}
+        <div id="total-result"></div>
+    </div>
+</div>

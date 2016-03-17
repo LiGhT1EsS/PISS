@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+            {% include "navbar.html" %}
+		</div>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="jumbotron">
+                        <h2>
+                            请选择图片进行上传：
+                        </h2>
+                        <form role="form" action="/upload" method="POST" enctype="multipart/form-data">
+                        {{ data.form.hidden_tag() }}
+                        <div class="form-group">
+                            <label for="title">图片标题<span style="color: gray"> (必填)</span></label>
+                            <input type="text" class="form-control" id="title" name="title" />
+                        </div>
+                        <div class="form-group">
+                            <label for="description">图片描述<span style="color: gray">  (可不填)</span></label>
+                            <textarea class="form-control" id="description" rows="5" name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="file_upload"></label>
+                            <input type="file" id="file_upload" name="file_upload" />
+                        </div>
+                        {% if not data.no_account %}
+                        <button type="submit" class="btn btn-primary {% if data.no_account %}disabled{% endif %}" name="Submit">上传</button>
+                        {% endif %}
+                        </form>
+                    <br />
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+                    </div>
+                </div>
+            </div>
+            </div>
+	</div>
+</div>
+{% endblock %}
