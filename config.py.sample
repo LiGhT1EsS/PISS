@@ -1,0 +1,23 @@
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+# Database config
+DB_USERNAME = 'root'
+DB_PASSWORD = ''
+DB_HOST = 'localhost'
+DB_DATABASE = 'piss'
+
+SQLALCHEMY_DATABASE_URI = 'mysql://' + DB_USERNAME + ':' + DB_PASSWORD + '@' + DB_HOST + '/' + DB_DATABASE
+
+# cookie and CSRF secret key
+SECRET_KEY = 'qap98mt@awlr'
+
+
+# Email config
+class MailConfig:
+    MAIL_SERVER = 'smtp.qq.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = ''
+    MAIL_PASSWORD = ''

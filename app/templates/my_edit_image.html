@@ -1,0 +1,30 @@
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="page-header">
+            <h2>
+                详细信息 <small>Details Information</small>
+            </h2>
+        </div>
+            <form role="form">
+				<div class="form-group">
+                    <label for="title">图片标题</label>
+                    <input type="text" class="form-control" id="title" value="{{ data.img_title }}" />
+				</div>
+				<div class="form-group">
+                    <label for="description">图片描述</label>
+                    <input type="text" class="form-control" id="description" value="{{ data.img_description }}" />
+				</div>
+				<div class="form-group">
+					<label for="thumbnail-image">缩略图</label><br />
+                    <img src="{{ data.thumbnail_url+data.username+'/'+data.img_filename }}" class="img-thumbnail" />
+				</div>
+				<div class="form-group">
+                    <label for="image-link">图片链接</label>
+                    <input type="text" class="form-control" disabled id="image-link" value="{{ data.img_link }}"/>
+				</div>
+                <button type="button" class="btn btn-success" id="save_image" onclick="func_save_edit({{ data.img_id }})">保存修改</button>
+                <button type="button" class="btn btn-primary" id="back_to_list" onclick="func_back_to_list()">返回</button>
+			</form><br/>
+        <div id="edit-save-result"></div>
+    </div>
+</div>

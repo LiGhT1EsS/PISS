@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+        {% include "navbar.html" %}
+		</div>
+	</div>
+    <div class="row clearfix">
+    <br />
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+			<div class="list-group" align="center">
+                <a class="list-group-item active">功能菜单</a>
+				<a href="#" class="list-group-item" id="my_basic_info" onclick="func_my_basic_info()">
+					个人信息
+				</a>
+                <a href="#" class="list-group-item" id="my_basic_setting" onclick="func_my_basic_setting()">
+					基本设置
+                </a>
+                <a href="#" class="list-group-item" id="my_images" onclick="func_my_images()">
+                    图片管理
+                </a>
+                <a href="#" class="list-group-item" id="my_help" onclick="func_my_help()">
+					使用帮助
+				</a>
+			</div>
+		</div>
+		<div id="main-body" class="col-md-10 column"></div>
+        <div class="col-md-12 column">
+            <div class="col-md-2 column"></div>
+            <div class="col-md-10 column"><div align="center" id="image-pagination"></div>
+        </div>
+        </div>
+	</div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+    <script src="/static/js/my.js"></script>
+{% endblock %}
+

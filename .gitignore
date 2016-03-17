@@ -1,0 +1,5 @@
+/tmp
+*.pyc
+config.py
+/migrations
+/flask
